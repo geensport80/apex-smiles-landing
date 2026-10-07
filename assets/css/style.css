@@ -11,8 +11,6 @@
 /* ================= 01. Design tokens ================= */
 
 :root {
-  color-scheme: light;
-
   --color-primary: #0b3b60;
   --color-on-primary: #ffffff;
   --color-accent: #00a896;
@@ -75,12 +73,12 @@
   --container: min(72rem, calc(100% - var(--space-lg)));
   --tap-target: 2.75rem;
   --header-offset: calc(var(--tap-target) + var(--space-sm) * 2);
+
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    color-scheme: dark;
-
     --color-primary: #2dd4bf;
     --color-on-primary: #042f2e;
     --color-accent: #2dd4bf;
@@ -92,6 +90,8 @@
     --color-danger: #fda29b;
     --color-star: #f5c518;
     --tone: #ffffff;
+
+    color-scheme: dark;
   }
 }
 
@@ -245,10 +245,10 @@ a {
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-pill);
   background: var(--color-primary);
+  transform: translateY(-150%);
   color: var(--color-on-primary);
   font-weight: var(--weight-semibold);
   text-decoration: none;
-  transform: translateY(-150%);
 }
 
 .skip-link:focus {
@@ -1054,6 +1054,7 @@ a {
     --lift: 0px;
   }
 
+  /* !important is allowed here by rule 3: this reset must beat every component transition. */
   *,
   *::before,
   *::after {

@@ -1,0 +1,89 @@
+/*
+ * Apex Smiles — utilities
+ *
+ * Single-purpose overrides. !important is allowed here only (and in the
+ * prefers-reduced-motion reset in style.css). Names follow Bootstrap 5 steps
+ * where practical: 3 = 1rem, 4 = 1.5rem, 5 = 3rem.
+ */
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mb-3 {
+  margin-bottom: var(--space-sm) !important;
+}
+
+.mb-4 {
+  margin-bottom: var(--space-md) !important;
+}
+
+.mb-5 {
+  margin-bottom: var(--space-xl) !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.px-3 {
+  padding-inline: var(--space-sm) !important;
+}
+
+.py-4 {
+  padding-block: var(--space-md) !important;
+}
+
+.py-5 {
+  padding-block: var(--space-xl) !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .d-md-none {
+    display: none !important;
+  }
+
+  .d-md-flex {
+    display: flex !important;
+  }
+
+  .flex-md-row {
+    flex-direction: row !important;
+  }
+}

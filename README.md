@@ -92,6 +92,7 @@ Template scaffolding bundles no third-party scripts, fonts, or stock libraries. 
 | --- | --- | --- |
 | Fonts | System font stack | — |
 | Placeholder images | Add under `assets/images/*` | Template licence |
+| Google Maps embed (optional, loads on click) | External service, not bundled | Google Maps Platform Terms of Service; use the Maps Embed API with your own key in production, or swap `data-map-src` for an OpenStreetMap embed (data © OpenStreetMap contributors, ODbL) |
 
 ---
 

@@ -3,9 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apex Smiles | Modern Dental Care Landing Page</title>
-  <meta name="description" content="Apex Smiles is a high-converting dental clinic landing page template built to ThemeForest standards.">
+  <title>Apex Smiles | Cosmetic &amp; Implant Dentist in Austin, TX</title>
+  <meta name="description" content="Porcelain veneers, dental implants, clear aligners and whitening in Austin, planned by a board-certified prosthodontist. Sedation options, evening hours and a complimentary consultation.">
   <link rel="canonical" href="https://example.com/">
+  <!-- Local SEO. Every value must match what the page shows: replace example.com, the address,
+       geo coordinates, phone and hours with the practice's real details. Saturdays (2nd and 4th
+       only) are left out on purpose: openingHoursSpecification cannot say "alternate weeks", and
+       listing every Saturday would show the wrong hours in Google. No aggregateRating or review:
+       Google ignores self-served reviews on a business's own site and may treat them as spam. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "@id": "https://example.com/#dentist",
+    "name": "Apex Smiles",
+    "alternateName": "Apex Smiles Boutique Dental & Aesthetic Institute",
+    "description": "Boutique cosmetic and restorative dental practice led by a board-certified prosthodontist, offering porcelain veneers, dental implants, clear aligner therapy and professional whitening with sedation options.",
+    "url": "https://example.com/",
+    "image": "https://example.com/assets/images/hero/hero-doctor.jpg",
+    "telephone": "+1-555-010-2740",
+    "email": "hello@apexsmiles.example",
+    "priceRange": "$$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Dental Insurance, Financing",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "420 Mercer Avenue, Suite 210",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "postalCode": "78701",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.2672,
+      "longitude": -97.7431
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=420+Mercer+Avenue%2C+Austin%2C+TX+78701",
+    "areaServed": {
+      "@type": "City",
+      "name": "Austin"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Wednesday", "Friday"],
+        "opens": "07:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Thursday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      }
+    ],
+    "founder": {
+      "@type": "Person",
+      "@id": "https://example.com/#maya-laurent",
+      "name": "Maya Laurent",
+      "honorificPrefix": "Dr.",
+      "honorificSuffix": "DDS, MS",
+      "jobTitle": "Founder & Lead Prosthodontist",
+      "image": "https://example.com/assets/images/branding/doctor-portrait.jpg",
+      "url": "https://example.com/#about-doctor"
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Porcelain Veneers", "url": "https://example.com/#services" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": 1450, "priceCurrency": "USD", "unitText": "per tooth" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Dental Implants", "url": "https://example.com/#services" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": 3800, "priceCurrency": "USD", "unitText": "per tooth" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Clear Aligner Therapy", "url": "https://example.com/#services" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": 3900, "priceCurrency": "USD" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Professional Teeth Whitening", "url": "https://example.com/#services" },
+        "priceSpecification": { "@type": "PriceSpecification", "minPrice": 495, "priceCurrency": "USD" }
+      }
+    ]
+  }
+  </script>
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
@@ -16,6 +102,13 @@
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
+  <!-- One star shape for every rating on the page: repeaters never duplicate ids. -->
+  <svg xmlns="http://www.w3.org/2000/svg" hidden>
+    <symbol id="icon-star" viewBox="0 0 20 20">
+      <path d="m10 2.5 2.2 4.5 5 .7-3.6 3.5.9 5L10 13.8 5.5 16.2l.9-5L2.8 7.7l5-.7L10 2.5Z" fill="currentColor"/>
+    </symbol>
+  </svg>
+
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header">
@@ -53,10 +146,10 @@
           </a>
         </p>
         <!-- Friction reducers sit directly under the CTA, where the decision is made. -->
-        <ul class="hero__assurances">
-          <li class="hero__assurance">Complimentary 45-minute consultation</li>
-          <li class="hero__assurance">Most PPO insurance plans accepted</li>
-          <li class="hero__assurance">0% financing for 12 months, subject to approval</li>
+        <ul class="hero__assurances check-list">
+          <li class="check-list__item">Complimentary 45-minute consultation</li>
+          <li class="check-list__item">Most PPO insurance plans accepted</li>
+          <li class="check-list__item">0% financing for 12 months, subject to approval</li>
         </ul>
       </header>
       <figure class="hero__media">
@@ -76,14 +169,11 @@
         </picture>
         <aside class="rating-card" aria-label="Patient rating">
           <svg class="rating-card__stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" width="90" height="18" aria-hidden="true">
-            <defs>
-              <path id="rating-card-star" d="m10 2.5 2.2 4.5 5 .7-3.6 3.5.9 5L10 13.8 5.5 16.2l.9-5L2.8 7.7l5-.7L10 2.5Z" fill="currentColor"/>
-            </defs>
-            <use href="#rating-card-star"/>
-            <use href="#rating-card-star" x="20"/>
-            <use href="#rating-card-star" x="40"/>
-            <use href="#rating-card-star" x="60"/>
-            <use href="#rating-card-star" x="80"/>
+            <use href="#icon-star" width="20" height="20"/>
+            <use href="#icon-star" x="20" width="20" height="20"/>
+            <use href="#icon-star" x="40" width="20" height="20"/>
+            <use href="#icon-star" x="60" width="20" height="20"/>
+            <use href="#icon-star" x="80" width="20" height="20"/>
           </svg>
           <p class="rating-card__score"><strong>4.9</strong> out of 5</p>
           <p class="rating-card__source">from 1,200+ patient reviews</p>
@@ -120,9 +210,122 @@
     <section class="section services" id="services" aria-labelledby="services-heading">
       <header class="section__header">
         <p class="section__badge">Treatments</p>
-        <h2 class="section__title" id="services-heading">Care planned around you.</h2>
-        <p class="section__lead">Preventive, restorative, and aesthetic services — card grid scaffolding next.</p>
+        <h2 class="section__title" id="services-heading">Treatments designed around your smile</h2>
+        <p class="section__lead">Every treatment begins with a digital scan and a written plan, so you know the result, the timeline and the investment before you commit.</p>
       </header>
+      <ul class="services__grid">
+        <li class="service-card">
+          <svg class="service-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+            <path d="M12 4.5 13.6 9H18l-3.6 2.6 1.4 4.4L12 13.6 8.2 16l1.4-4.4L6 9h4.4L12 4.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="service-card__title">Porcelain Veneers</h3>
+          <p class="service-card__excerpt">Hand-layered porcelain corrects chips, gaps, staining and uneven edges in as little as two visits. You preview your new smile as a removable mock-up before a single tooth is prepared.</p>
+          <ul class="service-card__highlights check-list">
+            <li class="check-list__item">Removable trial smile before prep</li>
+            <li class="check-list__item">Hand-layered porcelain, natural translucency</li>
+            <li class="check-list__item">Typically completed in 2–3 visits</li>
+          </ul>
+          <dl class="service-card__meta">
+            <div>
+              <dt>Duration</dt>
+              <dd>2–3 visits over 2–3 weeks</dd>
+            </div>
+            <div>
+              <dt>Starting investment</dt>
+              <dd>From $1,450 per tooth</dd>
+            </div>
+          </dl>
+          <a class="service-card__link" href="#contact">Book this visit<span class="screen-reader-text">: Porcelain Veneers</span>
+            <svg class="service-card__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="service-card">
+          <svg class="service-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+            <circle cx="12" cy="12" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 4.75v2.5M12 16.75v2.5M4.75 12h2.5M16.75 12h2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="service-card__title">Dental Implants</h3>
+          <p class="service-card__excerpt">A titanium implant and custom porcelain crown replace a missing tooth so it looks, feels and chews like your own. Guided surgery planned from a 3D scan keeps placement precise and recovery short.</p>
+          <ul class="service-card__highlights check-list">
+            <li class="check-list__item">3D-guided implant placement</li>
+            <li class="check-list__item">Custom abutment and porcelain crown</li>
+            <li class="check-list__item">Comfort sedation available</li>
+          </ul>
+          <dl class="service-card__meta">
+            <div>
+              <dt>Duration</dt>
+              <dd>60–90 min placement · 3–6 months to final crown</dd>
+            </div>
+            <div>
+              <dt>Starting investment</dt>
+              <dd>From $3,800 per tooth</dd>
+            </div>
+          </dl>
+          <a class="service-card__link" href="#contact">Book this visit<span class="screen-reader-text">: Dental Implants</span>
+            <svg class="service-card__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="service-card">
+          <svg class="service-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+            <path d="M5 8h14M5 12h14M5 16h14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 6.5v3M16 10.5v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3 class="service-card__title">Clear Aligner Therapy</h3>
+          <p class="service-card__excerpt">Nearly invisible, removable aligners straighten crowded or spaced teeth without brackets or wires. Virtual progress check-ins mean fewer trips to the office.</p>
+          <ul class="service-card__highlights check-list">
+            <li class="check-list__item">Nearly invisible, removable trays</li>
+            <li class="check-list__item">Virtual progress check-ins</li>
+            <li class="check-list__item">Fits busy weekday and Saturday schedules</li>
+          </ul>
+          <dl class="service-card__meta">
+            <div>
+              <dt>Duration</dt>
+              <dd>6–18 months · check-ins every 8–10 weeks</dd>
+            </div>
+            <div>
+              <dt>Starting investment</dt>
+              <dd>From $3,900</dd>
+            </div>
+          </dl>
+          <a class="service-card__link" href="#contact">Book this visit<span class="screen-reader-text">: Clear Aligner Therapy</span>
+            <svg class="service-card__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="service-card">
+          <svg class="service-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+            <path d="M12 4.5c2.8 3.2 4.2 5.6 4.2 8.1a4.2 4.2 0 0 1-8.4 0c0-2.5 1.4-4.9 4.2-8.1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="service-card__title">Professional Teeth Whitening</h3>
+          <p class="service-card__excerpt">In-office whitening lifts years of coffee, tea and wine staining in a single visit, with desensitizing care built in. Custom take-home trays keep your result bright for the long term.</p>
+          <ul class="service-card__highlights check-list">
+            <li class="check-list__item">In-office lift in one 90-minute visit</li>
+            <li class="check-list__item">Desensitizing care included</li>
+            <li class="check-list__item">Custom take-home trays for maintenance</li>
+          </ul>
+          <dl class="service-card__meta">
+            <div>
+              <dt>Duration</dt>
+              <dd>90-minute visit</dd>
+            </div>
+            <div>
+              <dt>Starting investment</dt>
+              <dd>From $495</dd>
+            </div>
+          </dl>
+          <a class="service-card__link" href="#contact">Book this visit<span class="screen-reader-text">: Professional Teeth Whitening</span>
+            <svg class="service-card__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
     </section>
     <!-- /#services -->
 
@@ -130,9 +333,55 @@
     <section class="section about-doctor" id="about-doctor" aria-labelledby="about-doctor-heading">
       <header class="section__header">
         <p class="section__badge">Your clinician</p>
-        <h2 class="section__title" id="about-doctor-heading">Meet the doctor.</h2>
-        <p class="section__lead">Bio, credentials, and portrait assets live under assets/images/branding/.</p>
+        <h2 class="section__title" id="about-doctor-heading">Meet Dr. Maya Laurent</h2>
+        <p class="section__lead">Founder &amp; Lead Prosthodontist — board-certified expertise with a calm, patient-first pace.</p>
       </header>
+      <div class="about-doctor__grid">
+        <figure class="about-doctor__portrait">
+          <!-- Placeholder: this file is currently a copy of the hero asset. Supply a real 800 × 1000
+               (4:5) portrait; the width/height below describe that intended file. -->
+          <picture>
+            <source type="image/webp" srcset="assets/images/branding/doctor-portrait.webp">
+            <img
+              class="about-doctor__image"
+              src="assets/images/branding/doctor-portrait.jpg"
+              alt="Dr. Maya Laurent, founder and lead prosthodontist at Apex Smiles."
+              width="800"
+              height="1000"
+              loading="lazy"
+              decoding="async">
+          </picture>
+        </figure>
+        <div class="about-doctor__content">
+          <ul class="about-doctor__badges" aria-label="Credentials">
+            <li class="about-doctor__badge">
+              <span class="about-doctor__badge-label">DDS</span>
+              <span class="about-doctor__badge-meta">Doctor of Dental Surgery</span>
+            </li>
+            <li class="about-doctor__badge">
+              <span class="about-doctor__badge-label">MS</span>
+              <span class="about-doctor__badge-meta">Master of Science, Prosthodontics</span>
+            </li>
+          </ul>
+          <ul class="about-doctor__highlights check-list">
+            <li class="check-list__item">Board-certified prosthodontist specializing in veneers, crowns, implants and full-smile reconstruction</li>
+            <li class="check-list__item">Three-year specialty residency in prosthodontics</li>
+            <li class="check-list__item">15+ years focused exclusively on aesthetic and restorative dentistry</li>
+            <li class="check-list__item">Trained in digital smile design, guided implant surgery and IV-free sedation dentistry</li>
+          </ul>
+          <blockquote class="about-doctor__quote">
+            <p>“A beautiful smile should never come at the cost of a healthy one. I spend the first visit listening: how you feel about your smile, what has held you back, and what you want to change. Only then do we plan, together, at a pace that feels right for you.”</p>
+          </blockquote>
+          <svg class="about-doctor__signature" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" width="220" height="56" role="img" aria-label="Signature of Dr. Maya Laurent">
+            <path d="M8 38c18-22 34-28 48-18 10 7 8 22-2 24-14 3-22-18-8-26 16-9 42-4 58 6 14 9 28 8 40-2 8-7 22-10 34-4 9 5 16 16 12 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M118 42c22 2 48 1 72-6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" opacity="0.55"/>
+            <text x="8" y="54" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-size="11" letter-spacing="0.04em">Dr. Maya Laurent</text>
+          </svg>
+          <p class="about-doctor__actions">
+            <a class="button button--primary" href="#contact">Meet Dr. Laurent at Your Consultation</a>
+          </p>
+        </div>
+      </div>
     </section>
     <!-- /#about-doctor -->
 
@@ -150,9 +399,85 @@
     <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-heading">
       <header class="section__header">
         <p class="section__badge">Stories</p>
-        <h2 class="section__title" id="testimonials-heading">Notes from the studio.</h2>
-        <p class="section__lead">Patient quotes and media belong in assets/images/testimonials/.</p>
+        <h2 class="section__title" id="testimonials-heading">Real stories from our patients</h2>
+        <p class="section__lead">Individual results vary. Patients shared their experiences voluntarily.</p>
       </header>
+      <!-- Matches the hero rating card. Link it to the practice's public review profile
+           (e.g. its Google Business Profile) so visitors can check the number themselves. -->
+      <p class="testimonials__summary">
+        <svg class="testimonials__summary-stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" width="100" height="20" aria-hidden="true">
+          <use href="#icon-star" width="20" height="20"/>
+          <use href="#icon-star" x="20" width="20" height="20"/>
+          <use href="#icon-star" x="40" width="20" height="20"/>
+          <use href="#icon-star" x="60" width="20" height="20"/>
+          <use href="#icon-star" x="80" width="20" height="20"/>
+        </svg>
+        <span><strong>4.9 out of 5</strong> from 1,200+ patient reviews</span>
+      </p>
+      <!-- Sample stories. Publish only real reviews, with the patient's written consent, and keep
+           the source and date accurate (FTC rules on consumer reviews). -->
+      <ul class="testimonials__grid">
+        <li class="testimonials__item">
+          <figure class="testimonial-card">
+            <svg class="testimonial-card__stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" width="90" height="18" role="img" aria-label="Rated 5 out of 5">
+              <use href="#icon-star" width="20" height="20"/>
+              <use href="#icon-star" x="20" width="20" height="20"/>
+              <use href="#icon-star" x="40" width="20" height="20"/>
+              <use href="#icon-star" x="60" width="20" height="20"/>
+              <use href="#icon-star" x="80" width="20" height="20"/>
+            </svg>
+            <p class="testimonial-card__treatment">Porcelain veneers · 6 upper teeth</p>
+            <blockquote class="testimonial-card__quote">
+              <p>For the first time in fifteen years, I don't think about my smile in photos. I wore the mock-up home for an evening before anything was done, and the final veneers look like my own teeth, just better.</p>
+            </blockquote>
+            <figcaption class="testimonial-card__author">
+              <span class="testimonial-card__avatar" aria-hidden="true">RM</span>
+              <span class="testimonial-card__name">Rachel M.</span>
+              <span class="testimonial-card__source">Austin, TX · Google review, Mar 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="testimonials__item">
+          <figure class="testimonial-card">
+            <svg class="testimonial-card__stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" width="90" height="18" role="img" aria-label="Rated 5 out of 5">
+              <use href="#icon-star" width="20" height="20"/>
+              <use href="#icon-star" x="20" width="20" height="20"/>
+              <use href="#icon-star" x="40" width="20" height="20"/>
+              <use href="#icon-star" x="60" width="20" height="20"/>
+              <use href="#icon-star" x="80" width="20" height="20"/>
+            </svg>
+            <p class="testimonial-card__treatment">Single dental implant · lower molar</p>
+            <blockquote class="testimonial-card__quote">
+              <p>I put this off for three years. Oral sedation kept everything calm, I was never rushed, and four months later I'm eating comfortably on both sides again. The crown looks completely natural.</p>
+            </blockquote>
+            <figcaption class="testimonial-card__author">
+              <span class="testimonial-card__avatar" aria-hidden="true">DK</span>
+              <span class="testimonial-card__name">David K.</span>
+              <span class="testimonial-card__source">Round Rock, TX · Google review, Jan 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li class="testimonials__item">
+          <figure class="testimonial-card">
+            <svg class="testimonial-card__stars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" width="90" height="18" role="img" aria-label="Rated 5 out of 5">
+              <use href="#icon-star" width="20" height="20"/>
+              <use href="#icon-star" x="20" width="20" height="20"/>
+              <use href="#icon-star" x="40" width="20" height="20"/>
+              <use href="#icon-star" x="60" width="20" height="20"/>
+              <use href="#icon-star" x="80" width="20" height="20"/>
+            </svg>
+            <p class="testimonial-card__treatment">Clear aligner therapy + whitening</p>
+            <blockquote class="testimonial-card__quote">
+              <p>My wedding photos are the first ones I've ever loved. The aligners fit around my twelve-hour nursing shifts, Saturday visits made it easy, and whitening the week before gave a bright, natural finish.</p>
+            </blockquote>
+            <figcaption class="testimonial-card__author">
+              <span class="testimonial-card__avatar" aria-hidden="true">PS</span>
+              <span class="testimonial-card__name">Priya S.</span>
+              <span class="testimonial-card__source">Austin, TX · Google review, Aug 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
     </section>
     <!-- /#testimonials -->
 
@@ -171,8 +496,76 @@
       <header class="section__header">
         <p class="section__badge">Get in touch</p>
         <h2 class="section__title" id="contact-heading">Book your consultation.</h2>
-        <p class="section__lead">Validated contact form and studio details arrive in the next milestone.</p>
+        <p class="section__lead">Visit the boutique studio, call <a href="tel:+15550102740">(555) 010-2740</a>, or leave a note — the validated booking form arrives in the next milestone.</p>
       </header>
+      <div class="contact__grid">
+        <div class="contact__details">
+          <address class="contact__address">
+            <strong>Apex Smiles</strong><br>
+            Boutique Dental &amp; Aesthetic Institute<br>
+            420 Mercer Avenue, Suite 210<br>
+            Austin, TX 78701<br>
+            <a href="tel:+15550102740">(555) 010-2740</a><br>
+            <a href="mailto:hello@apexsmiles.example">hello@apexsmiles.example</a>
+          </address>
+          <h3 class="contact__hours-title" id="hours-heading">Business hours</h3>
+          <table class="hours-table" aria-labelledby="hours-heading">
+            <caption class="screen-reader-text">Apex Smiles operating hours, Monday through Saturday</caption>
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Monday</th>
+                <td>7:00 AM – 5:00 PM</td>
+              </tr>
+              <tr>
+                <th scope="row">Tuesday</th>
+                <td>7:00 AM – 7:00 PM</td>
+              </tr>
+              <tr>
+                <th scope="row">Wednesday</th>
+                <td>7:00 AM – 5:00 PM</td>
+              </tr>
+              <tr>
+                <th scope="row">Thursday</th>
+                <td>7:00 AM – 7:00 PM</td>
+              </tr>
+              <tr>
+                <th scope="row">Friday</th>
+                <td>7:00 AM – 5:00 PM</td>
+              </tr>
+              <tr>
+                <th scope="row">Saturday</th>
+                <td>8:00 AM – 2:00 PM <span class="hours-table__note">(2nd &amp; 4th)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Click-to-load map. Nothing is fetched from Google until the visitor asks, so the
+             page stays light and no third-party cookies are set before consent (GDPR / PDPA).
+             data-map-src accepts https URLs on the hosts allowed in main.js only. For production,
+             use the Maps Embed API (https://www.google.com/maps/embed/v1/place?key=…&q=…). -->
+        <figure class="map-embed"
+          data-map-src="https://www.google.com/maps?q=420+Mercer+Avenue%2C+Austin%2C+TX+78701&amp;output=embed"
+          data-map-title="Map showing Apex Smiles at 420 Mercer Avenue, Austin, Texas">
+          <svg class="map-embed__pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+            <path d="M12 21s-6.5-6.2-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="12" cy="9.75" r="2.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <figcaption class="map-embed__caption">Apex Smiles · 420 Mercer Avenue, Austin</figcaption>
+          <p class="map-embed__actions">
+            <a class="button button--secondary" href="https://www.google.com/maps/search/?api=1&amp;query=420+Mercer+Avenue%2C+Austin%2C+TX+78701" target="_blank" rel="noopener noreferrer">
+              Get directions<span class="screen-reader-text"> (opens Google Maps in a new tab)</span>
+            </a>
+            <button class="button button--secondary map-embed__load" type="button" data-action="load-map" aria-describedby="map-embed-note">Show interactive map</button>
+          </p>
+          <p class="map-embed__note" id="map-embed-note">Loading the map connects to Google, which may set cookies.</p>
+        </figure>
+      </div>
     </section>
     <!-- /#contact -->
   </main>

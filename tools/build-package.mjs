@@ -11,7 +11,7 @@
  * Only an allowlist is packed, so development files (.git, .cursorrules, tools/,
  * editor and lint configs, .gitkeep) can never leak into the download. The
  * staging-only block in index.html (robots noindex for the public demo) is removed, and
- * the demo's GitHub Pages address is swapped back to the example.com placeholder.
+ * the demo's Netlify address is swapped back to the example.com placeholder.
  *
  * Before writing anything it refuses to build when:
  *   - the CSS checker (tools/check-css.mjs) reports a problem,
@@ -55,11 +55,12 @@ const DEV_PHRASES = [/milestone/i, /plug in here/i, /\bweek \d\b/i, /\bscaffold/
 const STAGING_BLOCK = /[ \t]*<!-- staging-only:start[\s\S]*?<!-- staging-only:end -->[ \t]*\r?\n/g;
 
 /**
- * The public demo is served by GitHub Pages straight from this repo, so index.html carries
- * the demo's real address in canonical, og:url, og:image and the JSON-LD. Buyers get the
- * example.com placeholder instead, which the documentation tells them to search for.
+ * The public demo's absolute URLs (canonical, Open Graph, Twitter and JSON-LD) use the
+ * Netlify placeholder below. Buyers get example.com instead, which the documentation
+ * tells them to search for. Write that host exactly, or the swap misses it and the
+ * github.io guard below will not catch a leftover demo address of a different shape.
  */
-const DEMO_ORIGIN = "https://geensport80.github.io/apex-smiles-landing/";
+const DEMO_ORIGIN = "https://your-domain.netlify.app/";
 const BUYER_ORIGIN = "https://example.com/";
 
 /** Lowercase words joined by hyphens, with one extension (rule 5). */

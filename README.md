@@ -94,7 +94,7 @@ Asset load order (as shipped):
 node tools/build-package.mjs 1.0.0
 ```
 
-Writes `dist/apex-smiles-1.0.0.zip` with `apex-smiles-html/` (the template) and `documentation/`. Only `index.html`, `favicon.ico`, `assets/` and `documentation/` are packed, so `.git`, `.cursorrules`, `tools/` and editor configs never ship. The block between `staging-only:start` and `staging-only:end` in `index.html` (the `noindex` for the public demo) is removed, and the demo address `https://geensport80.github.io/apex-smiles-landing/` is swapped for the `https://example.com/` placeholder that the documentation tells buyers to replace. The build refuses to run when the CSS checker fails, a developer note (milestone, TODO, lorem ipsum…) is left in `index.html`, a local path is missing or has the wrong letter case, or a file name is not lowercase-with-hyphens.
+Writes `dist/apex-smiles-1.0.0.zip` with `apex-smiles-html/` (the template) and `documentation/`. Only `index.html`, `favicon.ico`, `assets/` and `documentation/` are packed, so `.git`, `.cursorrules`, `tools/` and editor configs never ship. The block between `staging-only:start` and `staging-only:end` in `index.html` (the `noindex` for the public demo) is removed, and the demo address `https://your-domain.netlify.app/` is swapped for the `https://example.com/` placeholder that the documentation tells buyers to replace. The build refuses to run when the CSS checker fails, a developer note (milestone, TODO, lorem ipsum…) is left in `index.html`, a local path is missing or has the wrong letter case, or a file name is not lowercase-with-hyphens.
 
 ### Checking the CSS
 
@@ -106,16 +106,20 @@ Needs Node 18 or later and nothing else: the script uses only Node built-ins, so
 
 Stylelint is deliberately not used: every release depends on `braces`, which has an unpatched CVE (CVE-2026-93687).
 
-### Publishing the live demo (GitHub Pages)
+### Publishing on Netlify
 
-The demo at `https://geensport80.github.io/apex-smiles-landing/` is served straight from this repository, so it is the repo's `index.html`, with the `noindex` block, not the buyer zip.
+`netlify.toml` publishes the repository root (`publish = "."`) with no build command. Connect the repo in Netlify, then replace every `https://your-domain.netlify.app/` in `index.html` with the real site URL before the canonical and social cards go live. Asset CSS, JS, WebP and SVG responses are cached for one year (`immutable`). Every response sends `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff` and `Referrer-Policy: strict-origin-when-cross-origin`.
+
+### Publishing a GitHub Pages preview
+
+A Pages preview can still be served straight from this repository (`.nojekyll`), with the `noindex` block, not the buyer zip. Canonical and social URLs in that copy point at the Netlify placeholder until you change them.
 
 1. Run `node tools/check-css.mjs` and commit.
 2. Push `main` to GitHub.
 3. First time only: in the repository on GitHub, open **Settings → Pages**, set **Source** to *Deploy from a branch*, choose `main` and `/ (root)`, save, and tick **Enforce HTTPS** once it is offered.
 4. When the site is live, run Lighthouse on the demo URL in a Chrome **Incognito** window (DevTools → Lighthouse, Mobile), so extensions do not skew the result.
 
-`.nojekyll` in the root tells Pages to serve the files as they are, without a Jekyll build. Pages serves over HTTPS with gzip and a fixed 10-minute cache; custom response headers cannot be set there, so a host that allows them (for example Netlify or Cloudflare Pages) is the next step if longer asset caching is needed. The repository has to be public for Pages on a free GitHub plan, which also makes the development files visible on the demo domain; the buyer zip is unaffected.
+`.nojekyll` in the root tells Pages to serve the files as they are, without a Jekyll build. Pages serves over HTTPS with gzip and a fixed 10-minute cache and cannot set the headers in `netlify.toml`. The repository has to be public for Pages on a free GitHub plan, which also makes the development files visible on the preview domain; the buyer zip is unaffected.
 
 ---
 

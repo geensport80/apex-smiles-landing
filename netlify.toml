@@ -1,0 +1,33 @@
+# Apex Smiles — Netlify publishes the repository root. There is no build step.
+[build]
+  publish = "."
+
+# Long cache for fingerprinted-by-path static assets. HTML stays uncached here so a
+# new deploy is visible immediately; these files change only when their path changes.
+[[headers]]
+  for = "/assets/**/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/**/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/**/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/**/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Applied to every response, including the HTML document and documentation.
+[[headers]]
+  for = "/**"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

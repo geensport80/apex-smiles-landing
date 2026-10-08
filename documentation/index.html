@@ -142,7 +142,7 @@ python -m http.server 8000</code></pre>
             <tbody>
               <tr><td>Hero</td><td><code>assets/images/hero/hero-studio.svg</code></td><td>4:5 portrait, 1200 × 1500 px; subject right of centre, lower left kept calm for the rating card</td></tr>
               <tr><td>Clinician portrait</td><td><code>assets/images/branding/doctor-portrait.svg</code></td><td>4:5 portrait, 800 × 1000 px</td></tr>
-              <tr><td>Social sharing image</td><td><code>assets/images/branding/og-image.jpg</code></td><td>1200 × 630 px, under 300 KB</td></tr>
+              <tr><td>Social sharing image</td><td><code>assets/images/branding/og-preview.jpg</code></td><td>1200 × 630 px, under 300 KB. Used by <code>og:image</code> and <code>twitter:image</code></td></tr>
               <tr><td>Favicon</td><td><code>favicon.ico</code> and <code>assets/images/branding/favicon.svg</code></td><td>32 × 32 px and SVG</td></tr>
               <tr><td>Home-screen icon</td><td><code>assets/images/branding/apple-touch-icon.png</code></td><td>180 × 180 px, square, no transparency</td></tr>
             </tbody>
@@ -168,12 +168,12 @@ python -m http.server 8000</code></pre>
         <p>Before publishing, open <code>index.html</code> and search for <code>example.com</code>. Replace every match with your real address (with <code>https://</code>):</p>
         <ul>
           <li><code>&lt;link rel="canonical"&gt;</code></li>
-          <li><code>og:url</code> and <code>og:image</code> (social cards need absolute URLs)</li>
+          <li><code>og:url</code>, <code>og:image</code> and <code>twitter:image</code> (social cards need absolute URLs)</li>
           <li>Every URL inside the <code>application/ld+json</code> block</li>
         </ul>
         <p>Then update:</p>
         <ul>
-          <li><code>&lt;title&gt;</code>, <code>&lt;meta name="description"&gt;</code>, <code>og:title</code> and <code>og:description</code>, with your practice name and city.</li>
+          <li><code>&lt;title&gt;</code>, <code>&lt;meta name="description"&gt;</code>, <code>og:title</code>, <code>og:description</code>, <code>twitter:title</code> and <code>twitter:description</code>, with your practice name and city.</li>
           <li>The JSON-LD block: name, address, <code>geo</code> coordinates, phone, email, opening hours, founder and treatments. Keep it identical to what the page shows; search engines penalise mismatches.</li>
         </ul>
         <div class="docs__warning">

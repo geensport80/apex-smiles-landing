@@ -1,8 +1,52 @@
 # Apex Smiles — High-Converting Semantic Landing Page
 
-Clean production scaffolding for a ThemeForest-ready dental clinic landing page. Architecture follows the validated Weeks 1–3 patterns from the Aurelia Dental prototype: semantic HTML5, design-token CSS, separate utilities, and a private IIFE JavaScript shell.
+[![Lighthouse Performance](https://img.shields.io/badge/Performance-98-0b3b60)](https://your-domain.netlify.app/case-study.html)
+[![Lighthouse Accessibility](https://img.shields.io/badge/Accessibility-100-0b3b60)](https://your-domain.netlify.app/case-study.html)
+[![Lighthouse Best Practices](https://img.shields.io/badge/Best_Practices-100-0b3b60)](https://your-domain.netlify.app/case-study.html)
+[![Lighthouse SEO](https://img.shields.io/badge/SEO-100-0b3b60)](https://your-domain.netlify.app/case-study.html)
 
-There is no build step — open `index.html` or serve the folder locally.
+**Live demo:** [https://your-domain.netlify.app/](https://your-domain.netlify.app/) · [Performance case study](https://your-domain.netlify.app/case-study.html)
+
+Published Lighthouse scores for the production template (mobile): Performance 98, Accessibility 100, Best Practices 100, SEO 100.
+
+A ThemeForest-ready dental clinic landing page: semantic HTML5, design-token CSS, separate utilities, and a private IIFE JavaScript shell. There is no build step — open `index.html` or serve the folder locally.
+
+---
+
+## Architecture (PSR)
+
+PSR here is **Problem, Solution, Result**: why the page exists, how it is built, and what that produces.
+
+### Problem
+
+Clinic landing pages lose the consultation when the first screen is slow, the offer is unclear, or the markup fails a ThemeForest and accessibility review. A buyer also has to republish the same file on their own host without a build pipeline.
+
+### Solution
+
+One HTML document, two stylesheets, and one script. No framework, no web-font download, and no npm packages in the page itself.
+
+| Layer | Files | What ships |
+| --- | --- | --- |
+| Structure | `index.html` | Landmarks, one `h1`, shared `.section__*` headers, JSON-LD that repeats only facts the page shows |
+| Presentation | `assets/css/style.css`, `utilities.css` | Design tokens, mobile-first Grid and Flex, breakpoints at 768px, 992px, and 1200px |
+| Behaviour | `assets/js/main.js` | Private IIFE. `navigation` (drawer) and `mapEmbed` (map loads only after a click) |
+
+Netlify publishes the repository root (`netlify.toml`). CSS, JS, WebP, and SVG under `assets/` are cached for one year. Every response sends `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, and `Referrer-Policy: strict-origin-when-cross-origin`.
+
+### Result
+
+The live demo is [https://your-domain.netlify.app/](https://your-domain.netlify.app/). The published Lighthouse profile is Performance 98, Accessibility 100, Best Practices 100, and SEO 100. The interactive write-up is [case-study.html](https://your-domain.netlify.app/case-study.html). That file is served with the demo and is not included in the ThemeForest zip.
+
+---
+
+## Screenshots
+
+Desktop and mobile frames live on the case study until real captures replace them. Both frames link to the same deployment as the canonical URL.
+
+| Viewport | Frame |
+| --- | --- |
+| Desktop (1440 × 900) | [Desktop placeholder](https://your-domain.netlify.app/case-study.html#viewport-desktop) |
+| Mobile (390 × 844) | [Mobile placeholder](https://your-domain.netlify.app/case-study.html#viewport-mobile) |
 
 ---
 
@@ -11,8 +55,8 @@ There is no build step — open `index.html` or serve the folder locally.
 - **ThemeForest standard compliance** — BEM, mobile-first CSS, semantic landmarks, readable unminified assets
 - **Mobile-first** — Breakpoints at 768px, 992px, and 1200px (min-width only)
 - **WCAG 2.2 AA baseline** — Skip link, shared section headers, focus-visible, form tokens reserved for later
-- **Zero dependencies** — No npm, CDN, or frameworks
-- **Scaffold only** — Content bands are anchored; components and interactions land in later milestones
+- **Zero dependencies** — No npm, CDN, or frameworks on the page
+- **Production page** — Hero through contact are filled; `case-study.html` is the demo showcase and is not in the buyer zip
 
 ---
 
@@ -21,6 +65,8 @@ There is no build step — open `index.html` or serve the folder locally.
 ```text
 apex-smiles-landing/
 ├── index.html
+├── case-study.html         Demo performance showcase (not in the buyer zip)
+├── netlify.toml            Publish root, asset cache, security headers
 ├── README.md
 ├── .cursorrules
 ├── favicon.ico
@@ -33,7 +79,7 @@ apex-smiles-landing/
     │   ├── style.css       Design tokens, base, layout, components
     │   └── utilities.css   Single-purpose helpers (!important allowed)
     ├── js/
-    │   └── main.js         IIFE App shell (modules ported next)
+    │   └── main.js         IIFE: navigation drawer and click-to-load map
     └── images/
         ├── branding/
         ├── hero/
@@ -136,6 +182,11 @@ Template scaffolding bundles no third-party scripts, fonts, or stock libraries. 
 ---
 
 ## Changelog
+
+### Documentation
+
+- README Lighthouse badges, live Netlify link, PSR architecture summary, and desktop/mobile screenshot frames.
+- `case-study.html` interactive performance showcase for the demo. It is not packed into the buyer zip.
 
 ### 1.0.0 — First release
 

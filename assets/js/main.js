@@ -2,8 +2,7 @@
  * Apex Smiles — site behaviours.
  *
  * Vanilla ES6+ only. No jQuery, no build step, no third-party libraries.
- * Full modules (navigation, stickyHeader, smoothScroll, accordion, formValidation)
- * land in later milestones. mapEmbed is the first feature module.
+ * Modules: navigation (mobile drawer menu) and mapEmbed (click-to-load map).
  */
 (function () {
   "use strict";
@@ -45,8 +44,11 @@
     return module;
   };
 
-  /** Boot order grows as feature modules are ported from Week 1–3. */
-  const MODULES = Object.freeze(["mapEmbed"]);
+  /** Boot order. App.destroy() stops them in reverse. */
+  const MODULES = Object.freeze(["navigation", "mapEmbed"]);
+
+  /** The horizontal menu takes over from the drawer here. Mirrors 992px in style.css (rule 8). */
+  const DESKTOP_QUERY = window.matchMedia("(min-width: 992px)");
 
   /**
    * Hosts a map embed may load from. data-map-src is markup a page builder can edit, so
@@ -85,6 +87,154 @@
     init: () => runAll("init", MODULES),
 
     destroy: () => runAll("destroy", [...MODULES].reverse()),
+
+    /**
+     * Mobile drawer menu. While open it is modal: the rest of the page is inert, page
+     * scroll is locked on <html>, and closing with Escape or the backdrop returns focus to
+     * the toggle. A link click closes it and lets the browser follow the anchor.
+     * Markup, all inside .site-header: button.site-nav__toggle[aria-controls] pointing at
+     * nav.site-nav, and div.site-header__backdrop (shipped hidden for no-JS visitors).
+     * @namespace App.navigation
+     */
+    navigation: createModule((signal) => {
+      const toggle = document.querySelector(".site-nav__toggle");
+      const drawer = toggle ? document.getElementById(toggle.getAttribute("aria-controls") || "") : null;
+
+      if (!toggle || !drawer) {
+        return;
+      }
+
+      const header = toggle.closest(".site-header");
+      const backdrop = header ? header.querySelector(".site-header__backdrop") : null;
+      const brand = header ? header.querySelector(".site-header__brand") : null;
+
+      /** Elements this module made inert, so closing restores exactly those. */
+      let inerted = [];
+
+      const isOpen = () => toggle.getAttribute("aria-expanded") === "true";
+
+      /**
+       * @param {boolean} on
+       * @returns {void}
+       */
+      const setPageInert = (on) => {
+        if (on && !inerted.length) {
+          const outside = [...document.body.children].filter(
+            (el) => el !== header && el.tagName !== "SCRIPT"
+          );
+
+          inerted = [...outside, brand].filter((el) => el && !el.inert);
+          inerted.forEach((el) => {
+            el.inert = true;
+          });
+        } else if (!on) {
+          inerted.forEach((el) => {
+            el.inert = false;
+          });
+          inerted = [];
+        }
+      };
+
+      /**
+       * Single source of truth for the menu state. The drawer only opens below the
+       * desktop breakpoint; on desktop the menu is always visible and never inert.
+       * @param {boolean} open
+       * @param {boolean} [returnFocus=false]
+       * @returns {void}
+       */
+      const setOpen = (open, returnFocus = false) => {
+        const isDesktop = DESKTOP_QUERY.matches;
+        const show = open && !isDesktop;
+
+        toggle.setAttribute("aria-expanded", String(show));
+        drawer.classList.toggle("is-open", show);
+        drawer.inert = !show && !isDesktop;
+        document.documentElement.classList.toggle("no-scroll", show);
+
+        if (backdrop) {
+          backdrop.classList.toggle("is-open", show);
+        }
+
+        setPageInert(show);
+
+        if (!show && returnFocus) {
+          toggle.focus();
+        }
+      };
+
+      toggle.addEventListener("click", () => setOpen(!isOpen()), { signal });
+
+      if (backdrop) {
+        backdrop.addEventListener("click", () => setOpen(false, true), { signal });
+      }
+
+      drawer.addEventListener(
+        "click",
+        (event) => {
+          if (isOpen() && event.target instanceof Element && event.target.closest("a")) {
+            setOpen(false);
+          }
+        },
+        { signal }
+      );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Escape" && isOpen()) {
+            setOpen(false, true);
+          }
+        },
+        { signal }
+      );
+
+      DESKTOP_QUERY.addEventListener(
+        "change",
+        (event) => {
+          const toggleHadFocus = document.activeElement === toggle;
+
+          if (event.matches) {
+            setOpen(false);
+
+            // The toggle is hidden on desktop; keep keyboard focus in the menu.
+            const firstLink = toggleHadFocus ? drawer.querySelector("a") : null;
+
+            if (firstLink) {
+              firstLink.focus();
+            }
+          } else {
+            // Back on mobile: snap the drawer off-canvas instead of sliding it across.
+            drawer.classList.add("site-nav--instant");
+            setOpen(false);
+            void drawer.offsetWidth; // commit the jump before transitions return
+            window.requestAnimationFrame(() => drawer.classList.remove("site-nav--instant"));
+          }
+        },
+        { signal }
+      );
+
+      // The backdrop ships hidden for no-JS visitors; from here CSS fades it in and out.
+      if (backdrop) {
+        backdrop.hidden = false;
+      }
+
+      // destroy() and a second init() both abort: close first, so the page is never left
+      // scroll-locked, inert, or with a drawer nothing can close.
+      signal.addEventListener(
+        "abort",
+        () => {
+          setOpen(false);
+
+          if (backdrop) {
+            backdrop.hidden = true;
+          }
+        },
+        { once: true }
+      );
+
+      // Cold start: closed, and inert off-canvas on mobile so its links are not tabbable.
+      setOpen(false);
+    }),
 
     /**
      * Click-to-load maps. The facade costs nothing until the visitor presses

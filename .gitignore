@@ -1,0 +1,43 @@
+# OS junk
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Dependencies (local lint/tooling only — not shipped with the theme)
+node_modules/
+
+# Editor / IDE temp and local settings
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+*.bak
+*.orig
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.code-workspace
+.history/
+
+# Logs and caches
+*.log
+npm-debug.log*
+.eslintcache
+.stylelintcache
+.htmlhintcache
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+
+# Audit scratch (never ship)
+_audit_tmp.py
+
+# Buyer package built by tools/build-package.mjs
+dist/

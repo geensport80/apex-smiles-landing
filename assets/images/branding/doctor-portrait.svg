@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- Illustrated portrait of the lead clinician. Original artwork that ships with the
+       template; replace it with a real 4:5 portrait (see documentation). -->
+  <defs>
+    <linearGradient id="portrait-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6efe6"/>
+      <stop offset="1" stop-color="#e2f2ee"/>
+    </linearGradient>
+    <linearGradient id="portrait-coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eaf3f1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#portrait-bg)"/>
+  <path d="M130 1000V430a270 270 0 0 1 540 0v570" fill="#ffffff" opacity="0.55"/>
+
+  <!-- Hair, back -->
+  <path d="M250 420c-10-140 60-230 150-230s170 80 160 230c-4 70-20 130-30 170H280c-12-40-26-100-30-170Z" fill="#3b2a24"/>
+
+  <!-- Neck and face -->
+  <path d="M352 560h96v90c0 26-22 44-48 44s-48-18-48-44Z" fill="#d8a888"/>
+  <ellipse cx="400" cy="420" rx="118" ry="142" fill="#e7b998"/>
+
+  <!-- Hair, front -->
+  <path d="M282 410c6-110 60-170 128-170 70 0 118 52 118 130-60-10-110-46-140-96-20 58-58 104-106 136Z" fill="#4a352d"/>
+
+  <!-- Coat -->
+  <path d="M150 1000c0-170 60-290 180-330l70 70 70-70c120 40 180 160 180 330Z" fill="url(#portrait-coat)" stroke="#d4e6e2" stroke-width="3"/>
+  <path d="M330 670l70 120 70-120" fill="none" stroke="#c7ddd8" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M370 700l30 60 30-60Z" fill="#0b3b60"/>
+  <rect x="520" y="800" width="70" height="12" rx="6" fill="#00a896" opacity="0.6"/>
+
+  <!-- Simple, friendly features -->
+  <g fill="none" stroke="#5a3d31" stroke-width="7" stroke-linecap="round">
+    <path d="M352 430q14-10 28 0"/>
+    <path d="M420 430q14-10 28 0"/>
+    <path d="M368 492q32 22 64 0"/>
+  </g>
+</svg>

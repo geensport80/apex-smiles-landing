@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1200" width="960" height="1200">
+  <!-- Hero illustration: a sunlit arch with a tooth motif. Original artwork that ships with
+       the template; replace it with your own studio or clinician photo (see documentation).
+       The subject sits right of centre and the lower left stays quiet for the rating card. -->
+  <defs>
+    <linearGradient id="hero-sky" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#e3f4f0"/>
+      <stop offset="1" stop-color="#f5eee5"/>
+    </linearGradient>
+    <linearGradient id="hero-arch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef7f5"/>
+    </linearGradient>
+    <radialGradient id="hero-sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff6e3"/>
+      <stop offset="1" stop-color="#fff6e3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hero-tooth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e7f1ef"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="1200" fill="url(#hero-sky)"/>
+  <circle cx="640" cy="330" r="360" fill="url(#hero-sun)"/>
+
+  <!-- Arch window -->
+  <path d="M250 1040V520a290 290 0 0 1 580 0v520Z" fill="url(#hero-arch)" stroke="#c9e6e0" stroke-width="4"/>
+  <path d="M290 1040V530a250 250 0 0 1 500 0v510" fill="none" stroke="#dcefeb" stroke-width="2"/>
+
+  <!-- Floor -->
+  <rect y="1040" width="960" height="160" fill="#efe6da"/>
+  <path d="M0 1040h960" stroke="#e2d6c6" stroke-width="3"/>
+
+  <!-- Tooth -->
+  <g transform="translate(540 600)">
+    <ellipse cx="0" cy="300" rx="150" ry="22" fill="#0b3b60" opacity="0.08"/>
+    <path d="M-118-96c-40 0-64 34-64 84 0 64 22 108 34 170 10 50 20 112 52 112 30 0 34-58 44-98 7-28 22-42 52-42s45 14 52 42c10 40 14 98 44 98 32 0 42-62 52-112 12-62 34-106 34-170 0-50-24-84-64-84-46 0-62 22-118 22s-72-22-118-22Z"
+      fill="url(#hero-tooth)" stroke="#0b3b60" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M-120-48c-22 6-32 26-32 52" fill="none" stroke="#2dd4bf" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Sparkles -->
+  <g fill="#c9a227">
+    <path d="M770 430l9 26 26 9-26 9-9 26-9-26-26-9 26-9Z"/>
+    <path d="M360 470l6 17 17 6-17 6-6 17-6-17-17-6 17-6Z" opacity="0.8"/>
+    <path d="M720 760l5 14 14 5-14 5-5 14-5-14-14-5 14-5Z" opacity="0.7"/>
+  </g>
+
+  <!-- Plant, left of the arch -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M150 1040c0-120 10-210 40-300" stroke="#00a896" stroke-width="5"/>
+    <path d="M168 900c-50-20-80-60-86-110 50 6 86 46 86 110Z" fill="#00a896" opacity="0.35"/>
+    <path d="M178 820c40-34 60-80 52-128-44 24-62 72-52 128Z" fill="#00a896" opacity="0.5"/>
+    <path d="M160 980c-46-6-80-34-96-76 46-4 84 26 96 76Z" fill="#00a896" opacity="0.25"/>
+  </g>
+  <path d="M110 1040h90l-12 70h-66Z" fill="#d9c7b0"/>
+</svg>

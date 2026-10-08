@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "indentation": 2,
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates-with-different-values"]
+      }
+    ],
+    "block-no-empty": true,
+    "no-duplicate-selectors": true,
+    "no-extra-semicolons": true,
+    "no-eol-whitespace": true,
+    "max-empty-lines": 2,
+    "string-quotes": "double",
+    "color-no-invalid-hex": true,
+    "declaration-block-trailing-semicolon": "always",
+    "block-closing-brace-newline-after": "always",
+    "block-opening-brace-space-before": "always",
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never"
+  }
+}

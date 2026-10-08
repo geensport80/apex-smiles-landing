@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apex Smiles Documentation</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="assets/docs.css">
+</head>
+<body>
+  <div class="docs">
+    <header class="docs__header">
+      <h1 class="docs__title">Apex Smiles — Dental &amp; Aesthetic Clinic HTML Template</h1>
+      <p class="docs__meta">Documentation · Version 1.0.0 · Thank you for your purchase.</p>
+    </header>
+
+    <nav class="docs__toc" aria-labelledby="docs-toc-title">
+      <p class="docs__toc-title" id="docs-toc-title">Contents</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#package">Package contents</a></li>
+        <li><a href="#getting-started">Getting started</a></li>
+        <li><a href="#content">Editing content</a></li>
+        <li><a href="#colors">Colours and typography</a></li>
+        <li><a href="#images">Replacing images</a></li>
+        <li><a href="#seo">SEO and metadata</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#javascript">JavaScript</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#browsers">Browser support</a></li>
+        <li><a href="#credits">Credits and licensing</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+        <li><a href="#support">Support</a></li>
+      </ol>
+    </nav>
+
+    <main class="docs__content">
+      <section id="introduction" aria-labelledby="introduction-title">
+        <h2 id="introduction-title">1. Introduction</h2>
+        <p>Apex Smiles is a one-page HTML5 template for cosmetic, restorative and family dental practices. It is built for conversion: a clear hero with a single primary call to action, trust signals, treatments with starting prices, a clinician profile, transparent pricing, patient stories, a FAQ and a contact section with opening hours and a privacy-friendly map.</p>
+        <ul>
+          <li>Semantic HTML5, BEM class names and readable, unminified CSS and JavaScript.</li>
+          <li>No frameworks, no jQuery, no web-font downloads and no npm dependencies.</li>
+          <li>Mobile first, with automatic dark mode.</li>
+          <li>Built to WCAG 2.2 AA: visible focus, keyboard support, 4.5:1 text contrast and reduced-motion support.</li>
+          <li>Local SEO ready: <code>Dentist</code> structured data (JSON-LD), Open Graph tags and a social sharing image.</li>
+        </ul>
+        <p class="docs__note">All names, prices, reviews, addresses and phone numbers in the demo are fictional sample content. Replace them with your practice's real details before you publish.</p>
+      </section>
+
+      <section id="package" aria-labelledby="package-title">
+        <h2 id="package-title">2. Package contents</h2>
+<pre><code>apex-smiles/
+├── apex-smiles-html/          The template: upload this folder's contents
+│   ├── index.html
+│   ├── favicon.ico
+│   └── assets/
+│       ├── css/
+│       │   ├── style.css      Design tokens, layout and components
+│       │   └── utilities.css  Small single-purpose helper classes
+│       ├── js/
+│       │   └── main.js        Click-to-load map (vanilla JavaScript)
+│       └── images/
+│           ├── branding/      Favicon, app icon, social image, clinician portrait
+│           └── hero/          Hero illustration
+└── documentation/             This help file</code></pre>
+      </section>
+
+      <section id="getting-started" aria-labelledby="getting-started-title">
+        <h2 id="getting-started-title">3. Getting started</h2>
+        <h3>Preview on your computer</h3>
+        <p>Double-click <code>apex-smiles-html/index.html</code> to open it in your browser. For the most faithful preview, serve the folder locally, for example with Python 3:</p>
+<pre><code>cd apex-smiles-html
+python -m http.server 8000</code></pre>
+        <p>Then visit <code>http://localhost:8000</code>.</p>
+        <h3>Publish to your server</h3>
+        <ol>
+          <li>Complete the <a href="#seo">SEO checklist</a>, in particular replacing every <code>example.com</code>.</li>
+          <li>Upload the <strong>contents</strong> of <code>apex-smiles-html/</code> (not the folder itself) to your web root, for example <code>public_html/</code>.</li>
+          <li>Serve the site over HTTPS.</li>
+        </ol>
+        <p>Every path in the template is relative, so it also works from a sub-folder such as <code>example.com/clinic/</code>. File names are lowercase; keep them that way, because most Linux servers treat <code>Hero.svg</code> and <code>hero.svg</code> as different files.</p>
+      </section>
+
+      <section id="content" aria-labelledby="content-title">
+        <h2 id="content-title">4. Editing content</h2>
+        <p>All text lives in <code>index.html</code>. Each section is wrapped in comments so it is easy to find:</p>
+        <div class="docs__table-wrap">
+          <table>
+            <thead><tr><th scope="col">Section</th><th scope="col">Anchor</th><th scope="col">What to edit</th></tr></thead>
+            <tbody>
+              <tr><td>Menu</td><td><code>#primary-navigation</code></td><td>One <code>&lt;li&gt;</code> per link in <code>.site-nav__list</code>. Point each <code>href</code> at a section anchor from this table; when you add or remove a section, update its menu link too</td></tr>
+              <tr><td>Hero</td><td><code>#hero</code></td><td>Headline, introduction, buttons, the three reassurance ticks and the rating card</td></tr>
+              <tr><td>Trust bar</td><td><code>#trust-bar</code></td><td>Four key figures; add or remove <code>&lt;li&gt;</code> items freely</td></tr>
+              <tr><td>Services</td><td><code>#services</code></td><td>One <code>&lt;li class="service-card"&gt;</code> per treatment, with duration and starting price</td></tr>
+              <tr><td>About the doctor</td><td><code>#about-doctor</code></td><td>Portrait, credentials, highlights and quote</td></tr>
+              <tr><td>Pricing</td><td><code>#pricing</code></td><td>One <code>&lt;li class="pricing-card"&gt;</code> per plan; add <code>pricing-card--featured</code> to highlight one</td></tr>
+              <tr><td>Testimonials</td><td><code>#testimonials</code></td><td>One <code>&lt;li class="testimonials__item"&gt;</code> per review, plus the summary rating</td></tr>
+              <tr><td>FAQ</td><td><code>#faq</code></td><td>One <code>&lt;details class="faq__item"&gt;</code> per question</td></tr>
+              <tr><td>Contact</td><td><code>#contact</code></td><td>Address, phone, email, opening hours and map</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Lists and grids adapt to any number of items, so you can add a fifth service or a fourth pricing plan without touching the CSS.</p>
+        <div class="docs__warning">
+          <p><strong>Reviews and medical claims.</strong> Publish only genuine patient reviews, with the patient's written consent and an accurate source and date. Avoid promises such as "painless" or "guaranteed results"; dental boards and consumer-protection rules (for example the US FTC rule on consumer reviews) treat them as misleading.</p>
+        </div>
+        <h3>Phone numbers and email</h3>
+        <p>Search <code>index.html</code> for <code>555</code> and <code>apexsmiles.example</code> and replace every match, including the <code>tel:</code> and <code>mailto:</code> links. Write <code>tel:</code> numbers in international format, for example <code>tel:+15125550142</code>.</p>
+      </section>
+
+      <section id="colors" aria-labelledby="colors-title">
+        <h2 id="colors-title">5. Colours and typography</h2>
+        <p>The whole look is driven by design tokens at the top of <code>assets/css/style.css</code>, in the <code>:root</code> block. Change a token once and every component follows.</p>
+        <div class="docs__table-wrap">
+          <table>
+            <thead><tr><th scope="col">Token</th><th scope="col">Default</th><th scope="col">Used for</th></tr></thead>
+            <tbody>
+              <tr><td><code>--color-primary</code></td><td><span class="docs__swatch docs__swatch--primary"></span>#0b3b60</td><td>Primary buttons, heading accents, prices</td></tr>
+              <tr><td><code>--color-accent</code></td><td><span class="docs__swatch docs__swatch--accent"></span>#00a896</td><td>Decorative accents only (not for text)</td></tr>
+              <tr><td><code>--color-accent-strong</code></td><td><span class="docs__swatch docs__swatch--accent-strong"></span>#007a6c</td><td>Links, ticks, focus rings, badges</td></tr>
+              <tr><td><code>--color-bg</code> / <code>--color-surface</code></td><td><span class="docs__swatch docs__swatch--bg"></span>#f8fafc / #ffffff</td><td>Page background / cards</td></tr>
+              <tr><td><code>--color-text</code> / <code>--color-muted</code></td><td><span class="docs__swatch docs__swatch--text"></span>#1e293b / #64748b</td><td>Body text / secondary text</td></tr>
+              <tr><td><code>--color-star</code></td><td><span class="docs__swatch docs__swatch--star"></span>#b07d0a</td><td>Rating stars</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Dark mode follows the visitor's system setting. Its colours are set in the <code>@media (prefers-color-scheme: dark)</code> block right below <code>:root</code>; adjust them together with the light values. To turn dark mode off, add <code>data-theme="light"</code> to the <code>&lt;html&gt;</code> tag.</p>
+        <p class="docs__note">Keep text at a contrast ratio of at least 4.5:1 against its background (3:1 for borders and icons). Free checkers such as the WebAIM Contrast Checker make this quick.</p>
+        <h3>Fonts</h3>
+        <p>The template uses system fonts, so nothing is downloaded and there is no font licence to manage: <code>--font-sans</code> for text and <code>--font-display</code> (system serifs) for figures such as prices and statistics. To use a web font, load it in <code>&lt;head&gt;</code> and add its name to the front of the relevant token.</p>
+        <h3>Breakpoints</h3>
+        <p>Styles are mobile first, with <code>min-width</code> media queries at 768px, 992px and 1200px. Below 992px the menu opens as a drawer from the toggle button; from 992px it sits in the header bar. The 992px value also appears once in <code>assets/js/main.js</code> (<code>DESKTOP_QUERY</code>): if you change it, change it in both files.</p>
+      </section>
+
+      <section id="images" aria-labelledby="images-title">
+        <h2 id="images-title">6. Replacing images</h2>
+        <p>The template ships with original vector illustrations, so it looks complete out of the box. Replace them with your own photos when you have them.</p>
+        <div class="docs__table-wrap">
+          <table>
+            <thead><tr><th scope="col">Image</th><th scope="col">File</th><th scope="col">Recommended size</th></tr></thead>
+            <tbody>
+              <tr><td>Hero</td><td><code>assets/images/hero/hero-studio.svg</code></td><td>4:5 portrait, 1200 × 1500 px; subject right of centre, lower left kept calm for the rating card</td></tr>
+              <tr><td>Clinician portrait</td><td><code>assets/images/branding/doctor-portrait.svg</code></td><td>4:5 portrait, 800 × 1000 px</td></tr>
+              <tr><td>Social sharing image</td><td><code>assets/images/branding/og-image.jpg</code></td><td>1200 × 630 px, under 300 KB</td></tr>
+              <tr><td>Favicon</td><td><code>favicon.ico</code> and <code>assets/images/branding/favicon.svg</code></td><td>32 × 32 px and SVG</td></tr>
+              <tr><td>Home-screen icon</td><td><code>assets/images/branding/apple-touch-icon.png</code></td><td>180 × 180 px, square, no transparency</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Using a photo for the hero</h3>
+        <p>The package ships a vector hero (<code>hero-studio.svg</code>). To use your own photo instead, export it at three widths in WebP with a JPEG fallback, save the six files under the names below in <code>assets/images/hero/</code>, and replace the hero <code>&lt;img&gt;</code> with:</p>
+<pre><code>&lt;picture&gt;
+  &lt;source type="image/webp"
+    srcset="assets/images/hero/hero-640.webp 640w, assets/images/hero/hero-960.webp 960w, assets/images/hero/hero-1200.webp 1200w"
+    sizes="(min-width: 992px) 45vw, 100vw"&gt;
+  &lt;img class="hero__image" src="assets/images/hero/hero-1200.jpg"
+    srcset="assets/images/hero/hero-640.jpg 640w, assets/images/hero/hero-960.jpg 960w, assets/images/hero/hero-1200.jpg 1200w"
+    sizes="(min-width: 992px) 45vw, 100vw"
+    alt="Describe the photo" width="1200" height="1500"
+    fetchpriority="high" decoding="async"&gt;
+&lt;/picture&gt;</code></pre>
+        <p>Keep <code>fetchpriority="high"</code> and never add <code>loading="lazy"</code> to the hero: it is the first thing visitors see. Images further down the page (such as the portrait) keep <code>loading="lazy"</code>. Always set <code>width</code> and <code>height</code> to the file's real proportions so the page does not jump while loading, and write <code>alt</code> text that describes the photo.</p>
+      </section>
+
+      <section id="seo" aria-labelledby="seo-title">
+        <h2 id="seo-title">7. SEO and metadata</h2>
+        <p>Before publishing, open <code>index.html</code> and search for <code>example.com</code>. Replace every match with your real address (with <code>https://</code>):</p>
+        <ul>
+          <li><code>&lt;link rel="canonical"&gt;</code></li>
+          <li><code>og:url</code> and <code>og:image</code> (social cards need absolute URLs)</li>
+          <li>Every URL inside the <code>application/ld+json</code> block</li>
+        </ul>
+        <p>Then update:</p>
+        <ul>
+          <li><code>&lt;title&gt;</code>, <code>&lt;meta name="description"&gt;</code>, <code>og:title</code> and <code>og:description</code>, with your practice name and city.</li>
+          <li>The JSON-LD block: name, address, <code>geo</code> coordinates, phone, email, opening hours, founder and treatments. Keep it identical to what the page shows; search engines penalise mismatches.</li>
+        </ul>
+        <div class="docs__warning">
+          <p><strong>Do not add star ratings to the JSON-LD.</strong> Google does not show ratings a business publishes about itself, and treats them as spam. The visible rating on the page is fine.</p>
+          <p>Opening hours that do not repeat every week (such as "2nd and 4th Saturday") cannot be expressed in <code>openingHoursSpecification</code>, so the template leaves them out of the JSON-LD. Do not list days you are not always open.</p>
+        </div>
+        <p>Validate the result with Google's Rich Results Test and the Schema Markup Validator after publishing.</p>
+      </section>
+
+      <section id="map" aria-labelledby="map-title">
+        <h2 id="map-title">8. Map</h2>
+        <p>The contact section shows a lightweight map placeholder with a "Get directions" link and a "Show interactive map" button. Google Maps is only loaded when the visitor presses the button, which keeps the page fast and sets no third-party cookies before the visitor chooses to.</p>
+        <p>Edit the <code>&lt;figure class="map-embed"&gt;</code> element:</p>
+        <ul>
+          <li><code>data-map-src</code>: the address of the embedded map. For production, create a free key for the Google Maps Embed API and use <code>https://www.google.com/maps/embed/v1/place?key=YOUR_KEY&amp;q=YOUR+ADDRESS</code>. An OpenStreetMap embed (<code>https://www.openstreetmap.org/export/embed.html?…</code>) also works and needs no key.</li>
+          <li><code>data-map-title</code>: a short description of the map for screen-reader users.</li>
+          <li>The "Get directions" link: replace the address after <code>query=</code>.</li>
+        </ul>
+        <p>For safety, only <code>https://</code> maps from www.google.com, maps.google.com and www.openstreetmap.org are loaded. To allow another provider, add its host name to <code>MAP_HOSTS</code> in <code>assets/js/main.js</code>.</p>
+      </section>
+
+      <section id="javascript" aria-labelledby="javascript-title">
+        <h2 id="javascript-title">9. JavaScript</h2>
+        <p><code>assets/js/main.js</code> is plain, readable JavaScript with no libraries. It powers the mobile menu drawer and the click-to-load map. Everything else (the FAQ, pricing and layout) works without JavaScript, and without JavaScript the menu simply shows as a list under the logo. The script exposes nothing on <code>window</code>, so it cannot clash with plugins or other scripts.</p>
+      </section>
+
+      <section id="accessibility" aria-labelledby="accessibility-title">
+        <h2 id="accessibility-title">10. Accessibility</h2>
+        <ul>
+          <li>Skip link, landmarks and a logical heading order.</li>
+          <li>Visible keyboard focus on every interactive element, with 44 px touch targets.</li>
+          <li>The mobile menu is announced as expanded or collapsed. While it is open, keyboard and screen-reader focus stays inside it, and Escape or a tap outside closes it and returns focus to the menu button.</li>
+          <li>The FAQ uses native <code>&lt;details&gt;</code> elements, which work with keyboards and screen readers by default.</li>
+          <li>Star ratings are announced as text (for example "Rated 5 out of 5").</li>
+          <li>Animations are reduced to near-zero for visitors who ask their system for reduced motion.</li>
+        </ul>
+        <p>When you edit content, give every image a meaningful <code>alt</code> text (or <code>alt=""</code> if it is purely decorative) and keep headings in order.</p>
+      </section>
+
+      <section id="browsers" aria-labelledby="browsers-title">
+        <h2 id="browsers-title">11. Browser support</h2>
+        <p>The latest two versions of Chrome, Edge, Firefox and Safari, on desktop and mobile. The template uses modern CSS such as <code>color-mix()</code> and intrinsic grid layouts, which these browsers support. Internet Explorer is not supported.</p>
+      </section>
+
+      <section id="credits" aria-labelledby="credits-title">
+        <h2 id="credits-title">12. Credits and licensing</h2>
+        <div class="docs__table-wrap">
+          <table>
+            <thead><tr><th scope="col">Item</th><th scope="col">Source</th><th scope="col">Licence</th></tr></thead>
+            <tbody>
+              <tr><td>HTML, CSS and JavaScript</td><td>Original work</td><td>Covered by your Envato licence</td></tr>
+              <tr><td>Illustrations, favicon, app icon and social image</td><td>Original work, included in the package</td><td>Covered by your Envato licence</td></tr>
+              <tr><td>Fonts</td><td>The visitor's system fonts</td><td>Nothing bundled</td></tr>
+              <tr><td>Google Maps (optional, loads on click)</td><td>External service, not bundled</td><td>Google Maps Platform Terms of Service</td></tr>
+              <tr><td>OpenStreetMap (optional alternative)</td><td>External service, not bundled</td><td>Map data © OpenStreetMap contributors, ODbL</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>No third-party libraries, frameworks or stock photos are included. Photos you add yourself must be licensed for your use.</p>
+      </section>
+
+      <section id="changelog" aria-labelledby="changelog-title">
+        <h2 id="changelog-title">13. Changelog</h2>
+        <h3>1.0.0</h3>
+        <ul>
+          <li>Initial release, including the responsive header menu with a mobile drawer.</li>
+        </ul>
+      </section>
+
+      <section id="support" aria-labelledby="support-title">
+        <h2 id="support-title">14. Support</h2>
+        <p>If you have a question that this documentation does not answer, contact us through the comments or the support tab on the item page. Please include your purchase code, the browser and device, and a link to the page if it is online.</p>
+      </section>
+    </main>
+
+    <footer class="docs__footer">
+      <p>Apex Smiles documentation, version 1.0.0.</p>
+    </footer>
+  </div>
+</body>
+</html>

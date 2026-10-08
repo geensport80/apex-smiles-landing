@@ -1,0 +1,263 @@
+/*
+ * Apex Smiles — documentation styles. Standalone: the help file never depends on the
+ * template's own stylesheets, so it still reads correctly while you customise them.
+ */
+
+:root {
+  --docs-bg: #f8fafc;
+  --docs-surface: #ffffff;
+  --docs-text: #1e293b;
+  --docs-muted: #5b6676;
+  --docs-line: #dde3ea;
+  --docs-accent: #007a6c;
+  --docs-code-bg: #eef3f7;
+  --docs-note-bg: #e8f5f2;
+  --docs-warn-bg: #fdf3e2;
+  --docs-warn-line: #b7791f;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --docs-bg: #0f172a;
+    --docs-surface: #1e293b;
+    --docs-text: #e2e8f0;
+    --docs-muted: #a3b0c2;
+    --docs-line: #334155;
+    --docs-accent: #5eead4;
+    --docs-code-bg: #0b1324;
+    --docs-note-bg: #12313a;
+    --docs-warn-bg: #3a2e14;
+    --docs-warn-line: #f6c25b;
+
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 1rem;
+}
+
+body {
+  margin: 0;
+  background: var(--docs-bg);
+  color: var(--docs-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--docs-accent);
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--docs-accent);
+  outline-offset: 3px;
+}
+
+.docs {
+  display: grid;
+  gap: 2rem;
+  width: min(72rem, calc(100% - 2rem));
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
+
+.docs__header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--docs-line);
+}
+
+.docs__title {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.docs__meta {
+  margin: 0;
+  color: var(--docs-muted);
+}
+
+.docs__toc {
+  align-self: start;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--docs-line);
+  border-radius: 0.75rem;
+  background: var(--docs-surface);
+}
+
+.docs__toc-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.docs__toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.docs__toc li {
+  margin-block: 0.25rem;
+}
+
+.docs__content {
+  min-width: 0;
+}
+
+.docs__content h2 {
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--docs-line);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.docs__content h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.docs__content h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.125rem;
+}
+
+.docs__content p,
+.docs__content ul,
+.docs__content ol {
+  margin: 0 0 1rem;
+}
+
+code,
+pre {
+  font-family: ui-monospace, "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  font-size: 0.9em;
+}
+
+code {
+  padding: 0.1em 0.35em;
+  border-radius: 0.3rem;
+  background: var(--docs-code-bg);
+}
+
+pre {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--docs-line);
+  border-radius: 0.6rem;
+  background: var(--docs-code-bg);
+  line-height: 1.5;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+.docs__table-wrap {
+  margin: 0 0 1rem;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+th,
+td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--docs-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--docs-surface);
+}
+
+.docs__swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.4rem;
+  border: 1px solid var(--docs-line);
+  border-radius: 0.25rem;
+  vertical-align: -0.15rem;
+}
+
+.docs__swatch--primary {
+  background: #0b3b60;
+}
+
+.docs__swatch--accent {
+  background: #00a896;
+}
+
+.docs__swatch--accent-strong {
+  background: #007a6c;
+}
+
+.docs__swatch--bg {
+  background: #f8fafc;
+}
+
+.docs__swatch--text {
+  background: #1e293b;
+}
+
+.docs__swatch--star {
+  background: #b07d0a;
+}
+
+.docs__note,
+.docs__warning {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid var(--docs-accent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: var(--docs-note-bg);
+}
+
+.docs__warning {
+  border-left-color: var(--docs-warn-line);
+  background: var(--docs-warn-bg);
+}
+
+.docs__footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--docs-line);
+  color: var(--docs-muted);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 992px) {
+  .docs {
+    grid-template-columns: 15rem minmax(0, 1fr);
+  }
+
+  .docs__header,
+  .docs__footer {
+    grid-column: 1 / -1;
+  }
+
+  .docs__toc {
+    position: sticky;
+    top: 1rem;
+  }
+}
